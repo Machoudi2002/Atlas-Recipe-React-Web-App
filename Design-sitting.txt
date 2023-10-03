@@ -1,0 +1,30 @@
+colors {
+	
+	gray : #e5e5e5
+	White : #ffffff
+	red : #FF3131
+	browntext : #442A00
+	yellow : #FCCE0B
+
+}
+
+Fonts {
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Oswald:wght@300;400&display=swap" rel="stylesheet">
+	
+	font-family: 'Gloock', serif;
+	font-family: 'Oswald', sans-serif;
+
+
+}
+
+channel Id {
+	
+	https://www.youtube.com/channel/UCGeNnbrPXNJb5wfUfdjaWag
+}
+
+
+
+API_KEY = AIzaSyC3m0rkuQgRhR0YicLTOGN9ga0uF6h4yS4
