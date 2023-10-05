@@ -1,6 +1,7 @@
 # Atlas Recipe - Recipe Web App
 
 ![AtlasRecipe](public/AtlasRecipe.png")
+
 Atlas Recipe is a modern and user-friendly recipe web app built with React.js, SCSS, and Bootstrap 5. It utilizes the MealDB API for fetching a wide variety of delicious recipes and the YouTube API to display the website owner's recent videos. With features like search, favorites, category filters, and a random recipe generator, Atlas Recipe makes it easy to explore, save, and cook your favorite dishes.
 
 ## Features
