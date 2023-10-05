@@ -1,16 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import NavBar from '../Components/Static/NavBar'
-import Footer from '../Components/Static/Footer'
 import RecipeInfo from '../Components/Other/RecipeInfo'
 import Newsletter from '../Components/Other/Newsletter';
 
 const Random = () => {
 
   const [apiData, setApiData] = useState()
-  const [action, setAction] = useState("Add To Favorites")
+  const [action, setAction] = useState("")
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [loaded, setLoaded] = useState(false)
-  
+
+    const CheckDataIncludes = (recipeId) => {
+
+      const favorites = JSON.parse(localStorage.getItem('Favorites')) || [];
+      if (!favorites.includes(recipeId)) {
+        setAction("Add To Favorites")
+      } else {
+        setAction("Remove From Favorites",)
+      }
+
+    }
 
     const fetchMealData = async () => {
       setLoaded(true);
@@ -20,9 +28,9 @@ const Random = () => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-    
         const data = await response.json();
         setApiData(data.meals[0]);
+        CheckDataIncludes(data.meals[0].idMeal);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -61,13 +69,17 @@ const Random = () => {
     };
 
 
+
+
     const handleSaveClick = (recipeId) => {
       saveRecipeToLocalStorage(recipeId);
+      
 
     };
 
     const triggerRandomClick = () => {
       fetchMealData();
+      
     }
 
     if (!localStorage.getItem('Favorites')) {
@@ -76,6 +88,7 @@ const Random = () => {
     
     useEffect(() => {
       fetchMealData();
+      
 
     }, []);
     
