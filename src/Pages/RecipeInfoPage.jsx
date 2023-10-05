@@ -33,6 +33,17 @@ const RecipeInfoPage = () => {
         localStorage.setItem('Favorites', JSON.stringify(favorites));
       }
     }
+
+    const CheckDataIncludes = (mealId) => {
+
+      const favorites = JSON.parse(localStorage.getItem('Favorites')) || [];
+      if (!favorites.includes(mealId)) {
+        setAction("Add To Favorites")
+      } else {
+        setAction("Remove From Favorites",)
+      }
+
+    }
     
 
     function saveMealIdToFavorites(mealId) {
@@ -59,7 +70,7 @@ const RecipeInfoPage = () => {
     
     useEffect(() => {
       fetchMealData();
-      saveMealIdToFavorites(MealId);
+      CheckDataIncludes(MealId);
     }, []);
     
 
