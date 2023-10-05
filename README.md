@@ -27,8 +27,6 @@ Atlas Recipe is meticulously designed to achieve a perfect SEO score, ensuring t
 
 - **Sitemap**: Atlas Recipe generates a sitemap.xml file that lists all your recipe pages, helping search engine crawlers index your content efficiently.
 
-- **Optimized Images**: Images are compressed and served in WebP format, reducing page load times and improving SEO rankings.
-
 - **Mobile-Friendly**: The app is responsive and mobile-friendly, a crucial factor in modern SEO rankings.
 
 ## Accessibility
