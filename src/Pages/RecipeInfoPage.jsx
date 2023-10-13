@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+=import React, { useEffect, useState } from 'react'
 import RecipeInfo from '../Components/Other/RecipeInfo'
 import { useParams} from 'react-router-dom'
+import NotFound from './NotFound'
 
 const RecipeInfoPage = () => {
     const {MealId} = useParams()
     const [apiData, setApiData] = useState()
     const [action, setAction] = useState("")
+    const [dataNull, setDataNull] = useState()
 
     const fetchMealData = async () => {
       const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${MealId}`;
@@ -16,8 +18,20 @@ const RecipeInfoPage = () => {
         }
     
         const data = await response.json();
-        setApiData(data.meals[0]);
+        if (data.meals === null) {
+          console.log('Meal ID not found');
+          setDataNull(null)
+          return;
+        }
+        else {
+          setApiData(data.meals[0]);
+        }
+        
+        
+        
+        
       } catch (error) {
+        
         console.error("Error fetching data:", error);
       }
     }
@@ -77,6 +91,7 @@ const RecipeInfoPage = () => {
   return (
     <div className='container'>
         {
+          dataNull === null ? <NotFound /> : (
           apiData && <RecipeInfo 
                       Name={apiData.strMeal} 
                       Category={apiData.strCategory}
@@ -107,7 +122,8 @@ const RecipeInfoPage = () => {
                       ActionTitle={action}
                       
                       />
-        }
+          )
+      }
         
     </div>
   )
