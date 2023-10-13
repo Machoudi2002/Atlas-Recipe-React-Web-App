@@ -1,4 +1,4 @@
-=import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RecipeInfo from '../Components/Other/RecipeInfo'
 import { useParams} from 'react-router-dom'
 import NotFound from './NotFound'
